@@ -1,0 +1,23 @@
+user_agent = "insider_tracker robin_boone@live.be"
+
+[min_requirements]
+min_trade_value_usd = 1_000_000 
+min_position_increase_pct = 10.0
+max_market_cap_usd = 500_000_000
+require_market_cap = false
+
+[weights]
+trade_value = 1.0         
+position_increase = 1.0   
+market_cap = 1.0         
+industry = 0.5            
+cannibal = 0.5            
+
+[industry]
+keywords = ["biotech", "pharma", "therapeutics", "gold", "mining", "exploration"] 
+
+[cannibal]
+min_reduction_pct = 2.0
+
+[fetch]
+sec_sleep_seconds = 0.12

@@ -1,0 +1,25 @@
+# Example config for insider_trading
+
+user_agent = "YourAppName your.email@example.com"     # Required by SEC (app name + contact email)
+
+[min_requirements]
+min_trade_value_usd = 1_000_000     # Hard filter: trade value must be >= this
+min_position_increase_pct = 10.0  # Hard filter: position increase must be >= this
+max_market_cap_usd = 500_000_000    # Hard filter (if market cap known): must be <= this
+require_market_cap = false        # If true, drop rows missing market cap
+
+[weights]
+trade_value = 1.0         # Score weight
+position_increase = 1.0   # Score weight
+market_cap = 1.0          # Score weight
+industry = 0.5            # Score boost if industry keyword matches
+cannibal = 0.5            # Score boost if share count reduction qualifies
+
+[industry]
+keywords = ["biotech", "pharma", "therapeutics", "gold", "mining", "exploration"]     # For industry boost
+
+[cannibal]
+min_reduction_pct = 2.0    # Boost if share count reduced by >= this %
+
+[fetch]
+sec_sleep_seconds = 0.12   # Polite delay between SEC requests

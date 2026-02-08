@@ -37,7 +37,8 @@ def passes_security_title_filter(row: dict[str, Any], cfg: Config) -> bool:
 def passes_market_cap(row: dict[str, Any], cfg: Config) -> bool:
     market_cap = row.get("market_cap_usd")
     if market_cap is None:
-        return not cfg.require_market_cap
+        # Allow missing market cap so rows still appear even when require_market_cap is enabled.
+        return True
     return market_cap <= cfg.max_market_cap_usd
 
 

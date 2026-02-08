@@ -4,7 +4,7 @@ user_agent = "insider_tracker robin_boone@live.be"
 min_trade_value_usd = 1_000_000 
 min_position_increase_pct = 10.0
 max_market_cap_usd = 500_000_000
-require_market_cap = false
+require_market_cap = true
 
 [weights]
 trade_value = 1.0         
@@ -21,3 +21,5 @@ min_reduction_pct = 2.0
 
 [fetch]
 sec_sleep_seconds = 0.12
+fmp_api_key = "89kgkm5RKWCHRbm7gSqUEE77R6uar0ks"
+

@@ -52,6 +52,8 @@ class Config:
 
     sec_sleep_seconds: float = 0.12
     stooq_symbol_suffix: str = ".us"
+    yahoo_sleep_seconds: float = 0.2
+    fmp_api_key: str | None = None
 
     weights: Weights = field(default_factory=Weights)
 
@@ -102,6 +104,8 @@ def load_config(path: Path | None) -> Config:
             cannibal.get("min_reduction_pct", base.cannibal_min_reduction_pct)
         ),
         sec_sleep_seconds=float(fetch.get("sec_sleep_seconds", base.sec_sleep_seconds)),
+        yahoo_sleep_seconds=float(fetch.get("yahoo_sleep_seconds", base.yahoo_sleep_seconds)),
+        fmp_api_key=fetch.get("fmp_api_key", base.fmp_api_key),
     )
 
     return cfg

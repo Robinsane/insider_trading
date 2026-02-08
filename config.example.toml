@@ -6,7 +6,7 @@ user_agent = "YourAppName your.email@example.com"     # Required by SEC (app nam
 min_trade_value_usd = 1_000_000     # Hard filter: trade value must be >= this
 min_position_increase_pct = 10.0  # Hard filter: position increase must be >= this
 max_market_cap_usd = 500_000_000    # Hard filter (if market cap known): must be <= this
-require_market_cap = false        # If true, drop rows missing market cap
+require_market_cap = false        # If true, still include missing market caps but sort them to the end
 
 [weights]
 trade_value = 1.0         # Score weight
@@ -23,3 +23,5 @@ min_reduction_pct = 2.0    # Boost if share count reduced by >= this %
 
 [fetch]
 sec_sleep_seconds = 0.12   # Polite delay between SEC requests
+yahoo_sleep_seconds = 0.2  # Polite delay between Yahoo Finance requests
+fmp_api_key = ""           # Optional: Financial Modeling Prep API key to fill missing market caps
